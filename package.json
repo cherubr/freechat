@@ -1,6 +1,6 @@
 {
   "name": "electron-wechat",
-  "productName": "Freechat",
+  "productName": "weChat",
   "version": "1.0.0",
   "description": "Wechat desktop application",
   "main": "src/main.js",
@@ -13,7 +13,7 @@
     "postinstall": "electron-builder install-app-deps",
     "publish": "build -p always"
   },
-  "repository": "https://github.com/eNkru/electron-wechat",
+  "repository": "https://github.com/cherubr/freechat.git",
   "keywords": [
     "Electron",
     "Wechat",
@@ -29,11 +29,20 @@
   },
   "build": {
     "appId": "nz.co.enkru.${name}",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "build/icons/*.png"
+    ],
     "linux": {
       "category": "Network;Utility",
       "desktop": {
-        "StartupWMClass": "freechat"
+        "StartupWMClass": "weChat"
       },
+
       "target": [
         "AppImage",
         "deb"
@@ -47,5 +56,8 @@
     "win": {
       "target": "msi"
     }
+  },
+  "dependencies": {
+    "asar": "^3.1.0"
   }
 }
